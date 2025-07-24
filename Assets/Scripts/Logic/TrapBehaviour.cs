@@ -71,7 +71,7 @@ public class TrapBehaviour : MonoBehaviour, ITriggerObject
         { 
             //TODO : VFX HIT DAME
             playerTurnLogic.DecreaseTurn();
-            triggerObj.transform.GetComponent<PlayerMovement>()._axieFigure.SetAnimationWin();
+            triggerObj.transform.GetComponent<PlayerMovement>()._axieFigure.SetAnimationAttack();
             SoundManager.Instance.Play(Sounds.PlayerTakeDamage);
             var playerHitVFX = Pooling.Instantiate(_playerHit, _playerHitVfxSpawn.position, _playerHitVfxSpawn.rotation);
             playerHitVFX.Play();

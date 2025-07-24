@@ -78,6 +78,13 @@ public class EnemyController : MonoBehaviour, IInteractObject
     public void OnImpact(Vector2 direction)
     {
         if (isDead) return;
+        
+        anim.SetTrigger(hurtName);
+        float angle = direction == Vector2.up ? 90
+            : direction == Vector2.down ? -90
+            : direction == Vector2.right ? 0
+            : 180;
+        Pooling.InstantiateObject(hitVFX, transform.position - (Vector3)direction * .5f, Quaternion.Euler(0, 0, angle));
 
         if (CanMoveWithoutObstacle(direction))
         {
@@ -85,15 +92,6 @@ public class EnemyController : MonoBehaviour, IInteractObject
             // var hitFx = Instantiate(hitVFX, spawnVfx.position, spawnVfx.rotation);
             // hitFx.Play();
             
-            
-            anim.SetTrigger(hurtName);
-            float angle = direction == Vector2.up ? 90
-                : direction == Vector2.down ? -90
-                : direction == Vector2.right ? 0
-                : 180;
-            Pooling.InstantiateObject(hitVFX, transform.position - (Vector3)direction * .5f, Quaternion.Euler(0, 0, angle));
-
-            Vector2 originPos = transform.position;
             Action OnTrigger = null;
             bool haveTrigger = HaveTriggerInDirection(ref OnTrigger, direction);
             transform.DOMove((Vector2)transform.position + direction, 0.1f).OnComplete(() =>
@@ -118,12 +116,11 @@ public class EnemyController : MonoBehaviour, IInteractObject
     public void Die()
     {
         //destroy box
-        //TODO : VFX, Sound
         isDead = true;
         collider2D.enabled = false;
-        anim.SetTrigger("Die");
+        anim.SetTrigger(dieName);
         var deadFX = Pooling.Instantiate(deadVFX, spawnVfx.position, spawnVfx.rotation);
-        TimerManager.Instance.AddTimer(0.9f, () => deadFX.Play());
+        TimerManager.Instance.AddTimer(0.3f, () => deadFX.Play());
         SoundManager.Instance.Play(Sounds.ENEMY_DEAD);
         Pooling.Destroy(transform.gameObject, 1.5f);
     }

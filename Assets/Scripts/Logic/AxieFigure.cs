@@ -4,9 +4,8 @@ public class AxieFigure : MonoBehaviour
 {
     public Animator animator;
     
-    public readonly string IdleAnim = "Idle";
-    public readonly string WinAnim = "Win";
-    public readonly string AttactAnim = "Attack";
+    private readonly string WinAnim = "Win";
+    private  readonly string AttactAnim = "Attack";
     
     private SpriteRenderer _renderer;
     private bool _isFlip = false;

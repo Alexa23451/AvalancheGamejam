@@ -43,15 +43,15 @@ public class GameStatic : BaseManager<GameStatic>
             return;
         }
 
-        int currentLv = (SceneController.Instance.CurrentScene - 1);
-        if (currentLv == 5
-            || currentLv == 12
-            || currentLv == 18)
-        {
-            //Axie rescue
-            OnFinishRescueLv();
-            return;
-        }
+        // int currentLv = (SceneController.Instance.CurrentScene - 1);
+        // if (currentLv == 5
+        //     || currentLv == 12
+        //     || currentLv == 18)
+        // {
+        //     //Axie rescue
+        //     OnFinishRescueLv();
+        //     return;
+        // }
 
         OnNextLevel();
     }
@@ -68,7 +68,7 @@ public class GameStatic : BaseManager<GameStatic>
     void OnFinishTheGame()
     {
         UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo("You have finished the game !!!" ,
-            "Thanks for playing, Hero, you lead Axie to success!",
+            "Thanks for playing, Hero, you lead The Cat to success!",
              ExitToGameMenu);
         UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
     }
@@ -76,18 +76,18 @@ public class GameStatic : BaseManager<GameStatic>
     private int _countMeetNewCharacter = 0;
     void OnFinishRescueLv()
     {
-        int index = _countMeetNewCharacter;
-        UIManager.Instance.GetPanel<AxieRescuePanel>().SetInfo("AXIE UNLOCK!" ,
-            AxieRescueQuote[index], AxieRescue[index],
-            OnNextLevel);
-        UIManager.Instance.ShowPanelWithDG(typeof(AxieRescuePanel));
-        _countMeetNewCharacter++;
+        //int index = _countMeetNewCharacter;
+        // UIManager.Instance.GetPanel<AxieRescuePanel>().SetInfo("AXIE UNLOCK!" ,
+        //     AxieRescueQuote[index], AxieRescue[index],
+        //     OnNextLevel);
+        //UIManager.Instance.ShowPanelWithDG(typeof(AxieRescuePanel));
+        //_countMeetNewCharacter++;
     }
     
     public void OnHowToPlay()
     {
         UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo("You have finished the game !!!" ,    
-            "Thanks for playing, Hero, you lead Axie to success!",
+            "Thanks for playing, Hero, you lead the Cat to success!",
             ExitToGameMenu);
         UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
     }
