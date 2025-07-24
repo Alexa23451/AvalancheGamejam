@@ -21,8 +21,7 @@ public class WinGameTrigger : MonoBehaviour, ITriggerObject
         {
             //win game
             //TODO : WIN GAME LOGIC ,Cicle Transition and sound,vfx
-            string animName = "activity/evolve";
-            triggerObj.transform.GetComponent<PlayerMovement>()._axieFigure.SetAnimation(animName, 1.5f, true);
+            triggerObj.transform.GetComponent<PlayerMovement>()._axieFigure.SetAnimationWin();
             
             
             var playerHitVFX = Pooling.Instantiate(_winVFX, _spawnVfx.position + Vector3.up * 0.8f, _spawnVfx.rotation);

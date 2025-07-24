@@ -71,8 +71,7 @@ public class TrapBehaviour : MonoBehaviour, ITriggerObject
         { 
             //TODO : VFX HIT DAME
             playerTurnLogic.DecreaseTurn();
-            string animName = Random.value > 0.5f ? "battle/get-debuff" : "defense/hit-by-normal-crit";
-            triggerObj.transform.GetComponent<PlayerMovement>()._axieFigure.SetAnimation(animName, 1.5f, false);
+            triggerObj.transform.GetComponent<PlayerMovement>()._axieFigure.SetAnimationWin();
             SoundManager.Instance.Play(Sounds.PlayerTakeDamage);
             var playerHitVFX = Pooling.Instantiate(_playerHit, _playerHitVfxSpawn.position, _playerHitVfxSpawn.rotation);
             playerHitVFX.Play();

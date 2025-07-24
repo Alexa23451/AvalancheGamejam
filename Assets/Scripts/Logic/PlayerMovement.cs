@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
                 AttackObject(direction);
                 string animAttack = Random.value > 0.5f ? "attack/melee/multi-attack" : "attack/ranged/cast-high";
                 SoundManager.Instance.Play(Sounds.ENEMY_HIT);
-                _axieFigure.SetAnimation(animAttack, 2f, false);
+                _axieFigure.SetAnimationAttack();
                 
                 
                 _playerTurnLogic.DecreaseTurn();
