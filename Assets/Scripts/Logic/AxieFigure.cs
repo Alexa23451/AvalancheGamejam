@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class AxieFigure : MonoBehaviour
 {
+    private SpriteRenderer _renderer;
     private bool _isFlip = false;
     
-    public bool FlipX { get => _isFlip; set => _isFlip = value; }
+    void Start()
+    {
+        _renderer = GetComponent<SpriteRenderer>();
+    }
+    
+    public bool FlipX { get => !_renderer.flipX; set => _renderer.flipX = !value; }
     
     public void SetAnimation(string animName, float timeScale = 1, bool loop = false)
     {

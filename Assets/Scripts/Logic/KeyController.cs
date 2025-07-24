@@ -11,8 +11,8 @@ public class KeyController : MonoBehaviour, ITriggerObject
     {
         if (triggerObj.TryGetComponent(out PlayerKeyLock playerKeyLock))
         { 
-            string animName = "battle/get-buff";
-            triggerObj.transform.GetComponent<PlayerMovement>()._axieFigure.SetAnimation(animName, 1.5f, false);
+            //string animName = "battle/get-buff";
+            //triggerObj.transform.GetComponent<PlayerMovement>()._axieFigure.SetAnimation(animName, 1.5f, false);
             SoundManager.Instance.Play(Sounds.KEY);
             
             playerKeyLock.SetHaveKey();

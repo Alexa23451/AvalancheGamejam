@@ -8,11 +8,11 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IInteractObject
 {
-    [SerializeField] SkeletonAnimation anim;
+    [SerializeField] Animator anim;
 
-    private string idleName = "action/idle/normal";
-    private string hurtName = "defense/hit-by-normal";
-    private string dieName = "defense/hit-die";
+    private string idleName = "Idle";
+    private string hurtName = "Hurt";
+    private string dieName = "Die";
     
     public ParticleSystem deadVFX;
     public GameObject hitVFX;
@@ -25,7 +25,6 @@ public class EnemyController : MonoBehaviour, IInteractObject
     void Start()
     {
         collider2D = GetComponent<BoxCollider2D>();
-        anim.state.Complete += OnBackToIdleAnim;
         _playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
         TimerManager.Instance.AddTimer(0.2f,() => _playerMovement.OnMoveAction += OnCheckDame);
     }
@@ -85,6 +84,9 @@ public class EnemyController : MonoBehaviour, IInteractObject
             //anim.SetBool("IsHurting", true);
             // var hitFx = Instantiate(hitVFX, spawnVfx.position, spawnVfx.rotation);
             // hitFx.Play();
+            
+            
+            anim.SetTrigger(hurtName);
             float angle = direction == Vector2.up ? 90
                 : direction == Vector2.down ? -90
                 : direction == Vector2.right ? 0
@@ -96,8 +98,6 @@ public class EnemyController : MonoBehaviour, IInteractObject
             bool haveTrigger = HaveTriggerInDirection(ref OnTrigger, direction);
             transform.DOMove((Vector2)transform.position + direction, 0.1f).OnComplete(() =>
             {
-                anim.state.ClearTrack(0);
-                anim.state.SetAnimation(0, hurtName, false);
                 if (haveTrigger)
                 {
                     OnTrigger?.Invoke();
@@ -109,15 +109,9 @@ public class EnemyController : MonoBehaviour, IInteractObject
             Die();
         }
     }
-
-    void OnBackToIdleAnim(TrackEntry entry)
-    {
-        anim.state.SetAnimation(0, idleName, true);
-    }
     
     private void OnDestroy()
     {
-        anim.state.Complete -= OnBackToIdleAnim;
         _playerMovement.OnMoveAction -= OnCheckDame;
     }
 
@@ -127,8 +121,7 @@ public class EnemyController : MonoBehaviour, IInteractObject
         //TODO : VFX, Sound
         isDead = true;
         collider2D.enabled = false;
-        anim.state.ClearTrack(0);
-        anim.state.SetAnimation(0, dieName, false);
+        anim.SetTrigger("Die");
         var deadFX = Pooling.Instantiate(deadVFX, spawnVfx.position, spawnVfx.rotation);
         TimerManager.Instance.AddTimer(0.9f, () => deadFX.Play());
         SoundManager.Instance.Play(Sounds.ENEMY_DEAD);

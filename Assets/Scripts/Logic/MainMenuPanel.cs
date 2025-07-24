@@ -45,10 +45,8 @@ public class MainMenuPanel : MonoBehaviour
         private void OnInfoSetting()
         {
             UIManager.Instance.GetPanel<TextPopupPanel>().SetInfo("GUIDE" ,
-                "<color=#ff0000ff>W/A/S/D</color> or <color=#ff0000ff>ARROW KEY</color> to move axie around." +
-                "\n<color=#ff0000ff>SPACE</color> to reset level." +
-                "\n<color=#ff0000ff>ESCAPE</color> to go back the main menu." +
-                "\n\n Please help poor Axie ^^"); 
+                "<color=#ff0000ff>W/A/S/D - ARROW KEY</color> or <color=#ff0000ff>FINGER SWAP</color> to move the cat around." +
+                "\n\n Please help the cat out ^^"); 
             
             UIManager.Instance.ShowPanelWithDG(typeof(TextPopupPanel));
             SoundManager.Instance.Play(Sounds.UI_POPUP);

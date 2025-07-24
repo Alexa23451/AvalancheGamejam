@@ -259,7 +259,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 462a5605cd4f4de48821603c760ce4a6, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4290822336
+    rgba: 4281545523
 --- !u!1 &5128230544930658571
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,8 +431,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1987226457
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 5830952571768104059, guid: 039464890b1644640a48948952deaa56,
     type: 3}
@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 3796981797863174095}
   - component: {fileID: 212156023670644237}
   m_Layer: 0
-  m_Name: Axie
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
