@@ -8,6 +8,7 @@ public class MainMenuPanel : MonoBehaviour
         [SerializeField] private Button soundSettingBtn;
         [SerializeField] private Button infoSettingBtn;
         [SerializeField] private Image soundSettingImg;
+        [SerializeField] private Image gameLogoImg;
     
         [SerializeField] private AudioSource bgmMainMenu;
     
@@ -24,6 +25,10 @@ public class MainMenuPanel : MonoBehaviour
         private void Start()
         {
             soundSettingImg.color = DataManager.Instance.SoundOn ? colorOn : colorOff;
+            //if mobile device, hide the logo
+            gameLogoImg.gameObject.transform.localScale = Application.isMobilePlatform || Application.isEditor 
+                ? new Vector3(1, 1, 1)
+                : new Vector3(0.3f, 0.3f, 0.3f); 
     
             SoundManager.Instance.StopAll(true);
             SoundManager.Instance.GLOBAL_ON = DataManager.Instance.SoundOn;

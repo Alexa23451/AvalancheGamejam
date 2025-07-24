@@ -259,7 +259,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 462a5605cd4f4de48821603c760ce4a6, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4281545523
+    rgba: 4283190359
 --- !u!1 &5128230544930658571
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeThreshold: 50
   timeThreshold: 0.3
-  swipeCooldown: 0.1
+  swipeCooldown: 0.3
   OnSwipeLeft:
     m_PersistentCalls:
       m_Calls:
