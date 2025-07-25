@@ -176,7 +176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6096868246094535839
 Transform:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeThreshold: 50
   timeThreshold: 0.3
-  swipeCooldown: 0.3
+  swipeCooldown: 0.2
   OnSwipeLeft:
     m_PersistentCalls:
       m_Calls:

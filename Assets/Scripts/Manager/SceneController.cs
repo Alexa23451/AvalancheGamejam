@@ -18,7 +18,7 @@ public class SceneController : BaseManager<SceneController>
 
     void OnLoadScene(Scene cur, Scene next)
     {
-        Debug.Log("SCENE" + " cur " + "START");
+        Debug.Log(cur.buildIndex  + " to " + next.buildIndex);
         OnChangeScene?.Invoke(cur.buildIndex, next.buildIndex);
     }
 

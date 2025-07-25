@@ -31,6 +31,7 @@ public class PlayerTurnLogic : MonoBehaviour
     {
         _turnCanGo--;
         UpdateTextMesh(_turnCanGo.ToString());
+        UIManager.Instance.GetPanel<InGameCanvas>().SetStepLeft(_turnCanGo);
         
         if (_playerMovement.GameOver)
             return false;
