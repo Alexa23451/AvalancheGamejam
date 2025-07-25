@@ -31,7 +31,7 @@ public class InGameCanvas : BasePanel
 
     private void OnChangeScene(int fromScene, int toScene)
     {
-        _levelText.text = "Level " + toScene.ToString();
+        _levelText.text = "Level " + (toScene-1).ToString();
         SetStepLeft(GameStatic.Instance.CurrentPlayer.GetComponent<PlayerTurnLogic>().TurnCanGo);
     }
 
