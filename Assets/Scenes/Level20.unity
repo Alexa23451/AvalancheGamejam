@@ -6723,6 +6723,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 1211892219067471727, guid: ef46a67a03d649345ba14ee81de5df3b,
+        type: 3}
+      propertyPath: orthographic size
+      value: 7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1211892219067471760, guid: ef46a67a03d649345ba14ee81de5df3b,
         type: 3}
       propertyPath: m_RootOrder
