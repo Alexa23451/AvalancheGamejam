@@ -26,7 +26,7 @@ public class MainMenuPanel : MonoBehaviour
         {
             soundSettingImg.color = DataManager.Instance.SoundOn ? colorOn : colorOff;
             //if mobile device, hide the logo
-            gameLogoImg.gameObject.transform.localScale = Application.isMobilePlatform || Application.isEditor 
+            gameLogoImg.gameObject.transform.localScale = Application.isMobilePlatform
                 ? new Vector3(1, 1, 1)
                 : new Vector3(0.3f, 0.3f, 0.3f); 
     

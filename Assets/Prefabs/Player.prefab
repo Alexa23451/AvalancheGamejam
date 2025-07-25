@@ -593,7 +593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeThreshold: 50
   timeThreshold: 0.3
-  swipeCooldown: 0.2
+  swipeCooldown: 0.1
   OnSwipeLeft:
     m_PersistentCalls:
       m_Calls:

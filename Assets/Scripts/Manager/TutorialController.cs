@@ -8,6 +8,6 @@ public class TutorialController : MonoBehaviour
     void Start()
     {
         mobileTutorial.SetActive(Application.isMobilePlatform);
-        desktopTutorial.SetActive(Application.isMobilePlatform);
+        desktopTutorial.SetActive(!Application.isMobilePlatform);
     }
 }
